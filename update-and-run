@@ -8,7 +8,11 @@
 # cat lambda-results.txt
 
 rm lambda.zip
-zip -r --filesync lambda.zip . -x lambda.zip update-and-run lambda-results.txt 
+zip -r --filesync lambda.zip . -x lambda.zip update-and-run '.git*'
 aws lambda update-function-code --function-name addToCityZoo --zip-file fileb://lambda.zip
-aws lambda invoke --function-name addToCityZoo --invocation-type RequestResponse lambda-results.txt
-cat lambda-results.txt
+aws lambda invoke \
+    --function-name addToCityZoo \
+    --payload '{"name": "Billy", "species": "crocodile"}' \
+    --invocation-type RequestResponse \
+    --cli-binary-format raw-in-base64-out \
+    /dev/stdout

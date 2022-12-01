@@ -1,11 +1,11 @@
-import AnimalModel from "./animal.mjs";
-// import { nanoid } from "nanoid";
+const AnimalModel = require("./animal.js");
+const uniqid = require("uniqid");
 
-export const handler = async (event) => {
+const handler = async (event) => {
   const animal = new AnimalModel({
-    id: "croc-1",
-    name: "Larry",
-    species: "crocodile"
+    id: uniqid(),
+    name: event.name,
+    species: event.species
   })
 
   const resp = await animal.save();
@@ -16,3 +16,5 @@ export const handler = async (event) => {
   };
   return response;
 };
+
+module.exports = { handler };
