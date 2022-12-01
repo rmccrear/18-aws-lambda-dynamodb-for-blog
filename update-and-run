@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# esbuild ./lambda.js --platform=node --sourcemap --bundle --outfile=build/lambda/index.js
+# cd build/lambda; zip ../lambda.zip index.js; cd ../..
+# zip -r build/lambda.zip . -x build/
+# aws lambda update-function-code --function-name addToCityZoo --zip-file fileb://build/lambda.zip 
+# aws lambda invoke --function-name addToCityZoo --invocation-type RequestResponse lambda-results.txt
+# cat lambda-results.txt
+
+rm lambda.zip
+zip -r --filesync lambda.zip . -x lambda.zip update-and-run lambda-results.txt 
+aws lambda update-function-code --function-name addToCityZoo --zip-file fileb://lambda.zip
+aws lambda invoke --function-name addToCityZoo --invocation-type RequestResponse lambda-results.txt
+cat lambda-results.txt
