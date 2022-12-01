@@ -1,7 +1,6 @@
-import AnimalModel from "./animal.mjs";
-// import { nanoid } from "nanoid";
+const AnimalModel = require("./animal.cjs");
 
-export const handler = async (event) => {
+const handler = async (event) => {
   const animal = new AnimalModel({
     id: "croc-1",
     name: "Larry",
@@ -16,3 +15,5 @@ export const handler = async (event) => {
   };
   return response;
 };
+
+module.exports = { handler };

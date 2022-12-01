@@ -1,4 +1,4 @@
-import dynamoose from 'dynamoose';
+const dynamoose = require('dynamoose');
 
 const animalSchema = new dynamoose.Schema({
   id: String,
@@ -14,4 +14,4 @@ const AnimalModel = dynamoose.model("cityZoo",
   configObj
 );
 
-export default AnimalModel;
+module.exports = AnimalModel;
