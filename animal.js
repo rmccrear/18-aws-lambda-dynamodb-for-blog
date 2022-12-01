@@ -7,7 +7,7 @@ const animalSchema = new dynamoose.Schema({
 });
 
 // Tell Dynamoose not to attempt to create a table in DynamoDb.
-const configObj = { "create": false, "waitForActive": false }
+const configObj = { create: false, update: false, waitForActive: false }
 
 const AnimalModel = dynamoose.model("cityZoo",
   animalSchema,
