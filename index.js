@@ -1,4 +1,4 @@
-const AnimalModel = require("./animal.cjs");
+const AnimalModel = require("./animal.js");
 
 const handler = async (event) => {
   const animal = new AnimalModel({
