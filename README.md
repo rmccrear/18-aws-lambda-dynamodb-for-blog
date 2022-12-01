@@ -15,3 +15,7 @@ After cloning, to update your lambda function from the command line execute thes
     $ ./update-and-run
 
 You should be able to check that your AWS Lambda Function has been updated, and that the DynamoDB table has been updated.
+
+For Part 1 of the post, please see the branch called `minimal-dynamodb`.
+
+For Part 2 of the post, please see the branch called `api-gateway`.
